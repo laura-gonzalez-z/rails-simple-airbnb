@@ -1,0 +1,36 @@
+<h1>All our Flats</h1>
+<p>All <%= @flats.count %> flats.</p>
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-md-4 mb-4">
+      <div class="flat-card bg-light shadow-sm h-100 d-flex flex-column">
+        <div class="flat-card-image mb-4" style="background-image: url('https://images.unsplash.com/photo-1615571022219-eb45cf7faa9d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80')"></div>
+        <div class="flat-card-content px-4 mb-4">
+          <div class="flat-card-title">
+            <h4><%= flat.name %></h4>
+          </div>
+          <p><%= flat.address %></p>
+          <div class="d-flex">
+            <div class="d-flex align-items-center">
+              <i class="fa-solid fa-people-line"></i>
+              <span><%= flat.number_of_guests %></span>
+            </div>
+            <div class="d-flex align-items-center ms-3">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <span><%= flat.price_per_night %></span>
+            </div>
+          </div>
+        </div>
+        <div class="flat-card-actions bg-white px-4 py-3 mt-auto">
+          <%= link_to "More info", flat_path(flat) %>
+          <%= link_to "Edit", edit_flat_path(flat), class: "ms-3 text-warning" %>
+          <%= link_to "Remove",
+            flat_path(flat),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+            class: "ms-3 text-danger"
+          %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
