@@ -1,0 +1,38 @@
+<% image = @flat.image.empty? ? "https://images.unsplash.com/photo-1615571022219-eb45cf7faa9d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" : @flat.image %>
+<div class="flat-image" style="background-image: url('<%= image %>')"></div>
+<div class="container py-5 margin-top-negative">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="bg-white p-4 shadow-sm mb-4">
+        <h1><%= @flat.name %></h1>
+        <h3><i class="fa-solid fa-location-dot"></i> <%= @flat.address %></h3>
+      </div>
+      <div class="bg-white p-4 shadow-sm">
+        <h2>More about this flat</h2>
+        <p><%= @flat.description %></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="bg-white p-4 shadow-sm">
+        <%= link_to raw('<i class="fa-solid fa-rotate-left"></i> Go back to flats'), flats_path, class: "d-block btn btn-outline-secondary mb-2" %>
+        <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i> Edit this flat'), edit_flat_path(@flat), class: "d-block btn btn-outline-secondary mb-2" %>
+        <%= link_to raw('Delete this flat'),
+          flat_path(@flat),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "d-block btn btn-outline-secondary mb-4"
+        %>
+        <h2>Details</h2>
+        <div class="d-flex">
+          <div class="d-flex align-items-center gap-1">
+            <i class="fa-solid fa-people-line"></i>
+            <span><%= @flat.number_of_guests %></span>
+          </div>
+          <div class="d-flex align-items-center gap-1 ms-3">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span><%= @flat.price_per_night %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,6 @@
-<h1>Create Flat</h1>
-<%= render "form", flat: @flat %>
+<div class="container py-5">
+  <h1>Create Flat</h1>
+  <%= render "form", flat: @flat %>
+  <hr />
+  <%= link_to raw('<i class="fa-solid fa-rotate-left"></i> Go back to flats'), flats_path %>
+</div>

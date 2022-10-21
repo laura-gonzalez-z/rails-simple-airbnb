@@ -18,3 +18,11 @@
   background-position: center;
   background-size: cover;
 }
+.flat-image {
+  height: 350px;
+  background-position: center;
+  background-size: cover;
+}
+.margin-top-negative {
+  margin-top: -75px;
+}
